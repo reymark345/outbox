@@ -32,7 +32,7 @@ function populateList(list, pid) {
   });
   if (!items.length) {
     let item = data.filter(item => item.id == pid)[0];
-    l.innerText = item.urgency;
+    l.value = item.urgency;
   }
 }
 

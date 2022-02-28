@@ -21,18 +21,18 @@ def dashboard(request):
 @csrf_exempt
 def createtask(request):
     if request.method == 'POST':
-        # title = request.POST.get('title')
-        # description = request.POST.get('description')
-        # category1 = request.POST.get('cat1')
-
+        # urgent = request.POST.get('resultData')
+        cat1 = request.POST.get('cat1')
+        cat2 = request.POST.get('cat2')
+        cat2 = (int(cat2))
+        cat2 = cat2 - 3
         createRequest = task_tbl.objects.create(
             title = request.POST.get('title'),
             description = request.POST.get('description'),
-            date_requested = date.today()
-            # category1 = request.POST.get('cat1'),
-            # date_upload = datetime.date.today()
+            date_requested = date.today(),
+            category1_id = cat1,
+            category2_id = cat2
 		)
-        # category2 = request.POST.get('cat2')
         return JsonResponse({'data': 'success'})
 
 @csrf_exempt
