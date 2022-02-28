@@ -1,0 +1,24 @@
+[   
+    {"model":"auth.user","pk" : 1,"fields" : {"password" : "pbkdf2_sha256$150000$7feyjjRYNrI8$V5DlhL++JirPqXHIgb22d0mCZzmIDhH2JzW/Brbrxdw=","is_superuser" : "1" ,"username" : "sap", "first_name" : "FINANCE" ,"last_name" : "" ,"email" : "superuser@gmail.com" ,"is_staff" : "1","is_active" : "1" }},
+    {"model":"auth.user","pk" : 2,"fields" : {"password" : "pbkdf2_sha256$150000$H5Pyf5k2k94G$UyvrVneG3oO+mov46cTmeDlCXGaQs0PrKWNoK9y2T1w=","is_superuser" : "1" ,"username" : "superadmin", "first_name" : "Reymark" ,"last_name" : "Valdehueza" ,"email" : "reymarkvaldehueza@gmail.com" ,"is_staff" : "1","is_active" : "1" }},
+    {"model":"auth.user","pk" : 3,"fields" : {"password" : "pbkdf2_sha256$150000$63LUcXP03JHG$MUv/eZw9pJOi3PHWyT2zSz7seEfifirnO7WvQ+7ha4k=","is_superuser" : "1" ,"username" : "rao", "first_name" : "FMD" ,"last_name" : "RAO" ,"email" : "rao@gmail.com" ,"is_staff" : "1","is_active" : "1" }}, 
+    {"model":"app.category1_tbl","pk" : 1,"fields" : {"name" : "Infimos","isactive" : "1"}},  
+    {"model":"app.category1_tbl","pk" : 2,"fields" : {"name" : "Computer servicing","isactive" : "1"}},
+    {"model":"app.category1_tbl","pk" : 3,"fields" : {"name" : "Software installation","isactive" : "1"}},
+    {"model":"app.priority_tbl","pk" : 1,"fields" : {"name" : "low","isactive" : "1"}},
+    {"model":"app.priority_tbl","pk" : 2,"fields" : {"name" : "medium","isactive" : "1"}},
+    {"model":"app.priority_tbl","pk" : 3,"fields" : {"name" : "high","isactive" : "1"}},
+    {"model":"app.category2_tbl","pk" : 1,"fields" : {"name" : "Fix errors","isactive" : "1", "category1_id" : "1", "priority_id" : "3"}},
+    {"model":"app.category2_tbl","pk" : 2,"fields" : {"name" : "New feature","isactive" : "1", "category1_id" : "1", "priority_id" : "2"}},
+    {"model":"app.category2_tbl","pk" : 3,"fields" : {"name" : "Add payee","isactive" : "1", "category1_id" : "1", "priority_id" : "3"}},
+    {"model":"app.category2_tbl","pk" : 4,"fields" : {"name" : "Add user","isactive" : "1", "category1_id" : "1", "priority_id" : "2"}},
+    {"model":"app.category2_tbl","pk" : 5,"fields" : {"name" : "System assistance","isactive" : "1", "category1_id" : "1", "priority_id" : "3"}},
+    {"model":"app.category2_tbl","pk" : 6,"fields" : {"name" : "Internet connection problem","isactive" : "1", "category1_id" : "2", "priority_id" : "2"}},
+    {"model":"app.category2_tbl","pk" : 7,"fields" : {"name" : "Computer malfunction","isactive" : "1", "category1_id" : "2", "priority_id" : "2"}},
+    {"model":"app.category2_tbl","pk" : 8,"fields" : {"name" : "Printer connection problem","isactive" : "1", "category1_id" : "2", "priority_id" : "2"}},
+    {"model":"app.category2_tbl","pk" : 9,"fields" : {"name" : "Install microsoft office","isactive" : "1", "category1_id" : "3", "priority_id" : "1"}},
+    {"model":"app.category2_tbl","pk" : 10,"fields" : {"name" : "Printer/scanner Installation","isactive" : "1", "category1_id" : "3", "priority_id" : "2"}},
+    {"model":"app.category2_tbl","pk" : 11,"fields" : {"name" : "Install other applications","isactive" : "1", "category1_id" : "3", "priority_id" : "1"}}
+    
+  
+]

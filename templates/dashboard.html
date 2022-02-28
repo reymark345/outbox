@@ -220,7 +220,7 @@
                 <div class="card-header">
                   <button class="btn btn-primary" type="button" data-bs-toggle="modal"
                     data-bs-target="#modalRequests" title="btn btn-primary" style="float: right;">Create
-                    requests</button>
+                    request</button>
                   <!-- <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalRequests">Vertically centered</button> -->
                   <div class="modal fade" id="modalRequests" tabindex="-1" role="dialog"
                     aria-labelledby="modalRequests" aria-hidden="true">
@@ -230,7 +230,7 @@
                           <h5 class="modal-title">Create request</h5>
                           <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form id="createRequests">
+                        <form id="createRequest">
                           <div class="modal-body">
                             <!-- <form class="was-validated"> -->
 
@@ -272,7 +272,8 @@
                           <div class="modal-footer">
                             <div class="left-header col horizontal-wrapper ps-0">
                               <ul class="horizontal-menu">
-                                <li class="level-menu outside"><a class="nav-link" href="#!" ><i data-feather="inbox"></i><span id="resultData">Level</span></a>
+                                <li class="level-menu outside"><a class="nav-link" href="#!" ><i data-feather="inbox"></i></a>
+                                <input type="hidden" name="resultData" id="resultData" />
                                 </li>
                               </ul>
                               </li>
@@ -347,12 +348,12 @@
   <script src="{% static 'assets/js/script.js'%}"></script>
   <script src="{% static 'assets/js/theme-customizer/customizer.js'%}"></script>
   <script src="{% static 'assets/js/custom/customize.js'%}"></script>
-  <!-- <script src="{% static 'assets/js/custom/custom.js'%}"></script> -->
+
   
 
   <script type="text/javascript">
 
-    $('#createRequests').on('submit', function (e) {
+    $('#createRequest').on('submit', function (e) {
       $.ajax({
         data: new FormData(this),
         url: "{% url 'createtask' %}",
