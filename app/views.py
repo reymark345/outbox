@@ -7,6 +7,7 @@ from django.http import JsonResponse,HttpResponse
 from datetime import date
 import json
 from .models import task_tbl
+from django.views.decorators.csrf import csrf_exempt
 
 
 def login(request):
@@ -17,6 +18,7 @@ def dashboard(request):
     tasks = {'requestsdata':tasks}
     return render(request, 'dashboard.html',tasks)
 
+@csrf_exempt
 def createtask(request):
     if request.method == 'POST':
         # title = request.POST.get('title')
@@ -31,5 +33,15 @@ def createtask(request):
             # date_upload = datetime.date.today()
 		)
         # category2 = request.POST.get('cat2')
-        print("hoissss");
         return JsonResponse({'data': 'success'})
+
+@csrf_exempt
+def updateStatus(request):
+    if request.method=="POST":
+        taskId = request.POST.get('id')
+        source = request.POST.get("sources")
+        target = request.POST.get('targets')
+
+        task_tbl.objects.filter(id=taskId).update(status=target)
+        return JsonResponse({'datas': 'test'})
+

@@ -231,7 +231,6 @@
                           <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <form id="createRequests">
-                          {% csrf_token %}
                           <div class="modal-body">
                             <!-- <form class="was-validated"> -->
 
@@ -291,6 +290,7 @@
                 </div>
                 <div class="card-body">
                   <div id="demo2" style="display: flex;"></div>
+                  
                 </div>
               </div>
             </div>
@@ -347,6 +347,8 @@
   <script src="{% static 'assets/js/script.js'%}"></script>
   <script src="{% static 'assets/js/theme-customizer/customizer.js'%}"></script>
   <script src="{% static 'assets/js/custom/customize.js'%}"></script>
+  <!-- <script src="{% static 'assets/js/custom/custom.js'%}"></script> -->
+  
 
   <script type="text/javascript">
 
@@ -372,7 +374,6 @@
       e.preventDefault();
     });
 
-
     //Tasks board
     var kanban2 = new jKanban({
       element: '#demo2',
@@ -381,12 +382,13 @@
         alert(el.innerHTML);
       },
       boards: [{
-        'id': '_todo',
+        'id': '0',
         'title': 'To do',
         'class': 'bg-info',
-        'dragTo': ['_inProgress'],
+        'dragTo': ['1'],
         'item': [
           {% for tasking in requestsdata %}
+          {% if tasking.status == 0 %}
         {
           'title': `
                 <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-info f-right">medium</span>
@@ -413,16 +415,17 @@
                     </div>
                   </div></a>
             `,
-          },{% endfor %}
+          },{% endif %}{% endfor %}
         ]
       },
     {
-      'id': '_inProgress',
+      'id': '1',
         'title': 'In Progress',
           'class': 'bg-warning',
-            'dragTo': ['_todo','_review'],
+            'dragTo': ['0','2'],
               'item': [
               {% for tasking in requestsdata %} 
+              {% if tasking.status == 1 %}
               {
                 'title': `
                       <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-danger f-right">Argent</span>
@@ -449,16 +452,17 @@
                           </div>
                         </div></a>
                     `,
-              },{% endfor %}
+              },{% endif %}{% endfor %}
               ]
     },
     {
-      'id': '_review',
+      'id': '2',
         'title': 'Review',
           'class': 'bg-danger',
-            'dragTo': ['_inProgress','_done'],
+            'dragTo': ['1','3'],
               'item': [
               {% for tasking in requestsdata %}
+              {% if tasking.status == 2 %}
               {
                 'title': `
                       <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-success f-right">Low</span>
@@ -485,16 +489,17 @@
                           </div>
                         </div></a>
                     `,
-              },{% endfor %}
+              },{% endif %}{% endfor %}
               ]
     },
     {
-      'id': '_done',
+      'id': '3',
         'title': 'Done',
           'class': 'bg-success',
-            'dragTo': ['_review'],
+            'dragTo': ['2'],
               'item': [
               {% for tasking in requestsdata %}
+              {% if tasking.status == 3 %}
               {
                 'title': `
                     <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-danger f-right">Argent</span>
@@ -522,15 +527,29 @@
                           </ul>
                         </div>
                       </div></a>
-                                    `,
-              },{% endfor %}
+                `,
+              },{% endif %}{% endfor %}
               ]
     }],
     dropEl: function (el, target, source, sibling) {
-      console.log("Source " + source.parentElement.getAttribute('data-id'));
-      console.log("Target " + target.parentElement.getAttribute('data-id'));
-      console.log("Data Id " + $(el).find('.kanban-box').data('id'));
-    }});
+
+      //control data id if not existed in list
+      var source = source.parentElement.getAttribute('data-id');
+      var target = target.parentElement.getAttribute('data-id');
+      var id = $(el).find('.kanban-box').data('id');
+
+      $.ajax({
+        data: {
+        id,
+        'sources':source,
+        'targets':target
+      },
+        url: "{% url 'updateStatus' %}",
+        type: 'POST'
+      }).done(function(data){
+        console.log("success");
+      })
+  }});
   </script>
 
 
