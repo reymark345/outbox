@@ -388,6 +388,7 @@
         'dragTo': ['1'],
         'item': [
           {% for tasking in requestsdata %}
+          {% if tasking.status == 0 %}
         {
           'title': `
                 <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-info f-right">medium</span>
@@ -414,7 +415,7 @@
                     </div>
                   </div></a>
             `,
-          },{% endfor %}
+          },{% endif %}{% endfor %}
         ]
       },
     {
@@ -424,6 +425,7 @@
             'dragTo': ['0','2'],
               'item': [
               {% for tasking in requestsdata %} 
+              {% if tasking.status == 1 %}
               {
                 'title': `
                       <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-danger f-right">Argent</span>
@@ -450,7 +452,7 @@
                           </div>
                         </div></a>
                     `,
-              },{% endfor %}
+              },{% endif %}{% endfor %}
               ]
     },
     {
@@ -460,6 +462,7 @@
             'dragTo': ['1','3'],
               'item': [
               {% for tasking in requestsdata %}
+              {% if tasking.status == 2 %}
               {
                 'title': `
                       <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-success f-right">Low</span>
@@ -486,7 +489,7 @@
                           </div>
                         </div></a>
                     `,
-              },{% endfor %}
+              },{% endif %}{% endfor %}
               ]
     },
     {
@@ -496,6 +499,7 @@
             'dragTo': ['2'],
               'item': [
               {% for tasking in requestsdata %}
+              {% if tasking.status == 3 %}
               {
                 'title': `
                     <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-danger f-right">Argent</span>
@@ -524,7 +528,7 @@
                         </div>
                       </div></a>
                 `,
-              },{% endfor %}
+              },{% endif %}{% endfor %}
               ]
     }],
     dropEl: function (el, target, source, sibling) {
