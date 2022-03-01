@@ -18,6 +18,11 @@ def dashboard(request):
     tasks = {'requestsdata':tasks}
     return render(request, 'dashboard.html',tasks)
 
+def taskboard(request):
+    tasks = task_tbl.objects.all()
+    tasks = {'requestsdata':tasks}
+    return render(request, 'dashboard.html',tasks)
+
 @csrf_exempt
 def createtask(request):
     if request.method == 'POST':

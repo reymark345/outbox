@@ -47,7 +47,7 @@
             <div>
               <div><a class="logo text-start" href="index.html"><img class="img-fluid for-light" src="{% static 'assets/images/logo/login_logo.png'%}"  alt="looginpage"><img class="img-fluid for-dark" src="{% static 'assets/images/logo/logo_dark.png'%}"  alt="looginpage"></a></div>
               <div class="login-main"> 
-                <form class="theme-form" action="{% url 'dashboard' %}" method="POST">{% csrf_token %}
+                <form class="theme-form" action="{% url 'taskboard' %}" method="POST">{% csrf_token %}
                   <h4>Sign in to account</h4>
                   <p>Enter your email & password to login</p>
                   <div class="form-group">

@@ -12,6 +12,7 @@ urlpatterns = [
     path('',views.login, name='login'),
     path('dashboard/',views.dashboard, name='dashboard'),
     path('createtask/',views.createtask, name='createtask'),
+    path('taskboard/',views.taskboard, name='taskboard'),
     path('updateStatus/',views.updateStatus, name='updateStatus'),
 
     
