@@ -260,10 +260,10 @@
       //Tasks board
       var kanban2 = new jKanban({
         element: '#demo2',
-        gutter:'15px',
-        buttonClick  : function (el, boardId) {
-          alert(el.innerHTML);
-        },
+        gutter:'15px',        
+        // buttonClick  : function (el, boardId) {
+        //   alert(el.innerHTML);
+        // },
         boards: [{
           'id': '0',
           'title': 'To do',
@@ -414,6 +414,20 @@
                 },{% endif %}{% endfor %}
                 ]
       }],
+      click: function (el) {
+          var id = $(el).find('.kanban-box').data('id');
+          $.ajax({
+            data: {
+            id
+            },
+            url: "{% url 'viewCard' %}",
+            type: 'POST'
+            }).done(function(response){
+              
+            console.log("success");
+            console.log(response.data);
+            })
+        },
       dropEl: function (el, target, source, sibling) {
   
         //control data id if not existed in list

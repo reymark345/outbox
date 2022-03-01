@@ -55,3 +55,12 @@ def updateStatus(request):
         card_tbl.objects.filter(id=cardId).update(status=target)
         return JsonResponse({'datas': 'test'})
 
+@csrf_exempt
+def viewCard(request):
+    if request.method=="POST":
+        card = card_tbl.objects.all()
+        card = {'data':"test"}
+
+        print("halaka")
+        return JsonResponse(card)
+
