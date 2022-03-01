@@ -8,7 +8,7 @@
             <div class="row">
               <div class="col-6">
                 <h3>
-                  User Information</h3>
+                  Requests Information</h3>
               </div>
               <div class="col-6">
                 <ol class="breadcrumb">
@@ -73,21 +73,35 @@
 
                             <div>
                               <label class="form-label" for="validationTextarea">Image (optional)</label>
-                              <input class="form-control" type="file" aria-label="file example">
+                              <!-- <input class="form-control" type="file" aria-label="file example" multiple> -->
+
+
+                             <input type="file" multiple data-bind="fileInput: multiFileData, customFileInput: {                                                                 
+                              }" accept="image/*" name="photos[]"  class="form-control" id="dpz-remove-all-thumb">
+
+
                               <div class="invalid-feedback">Example invalid form file feedback</div>
+                              <!-- <div class="card-body">
+                                <form class="dropzone dropzone-primary" id="multiFileUpload" action="/upload.php">
+                                  <div class="dz-message needsclick"><i class="icon-cloud-up"></i>
+                                    <h6>Drop files here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
+                                  </div>
+                                </form>
+                              </div> -->
                             </div>
 
                           </div>
                           <div class="modal-footer">
-                            <div class="left-header col horizontal-wrapper ps-0">
+                            <input type="hidden" name="resultData" id="resultData" />
+                            <!-- <div class="left-header col horizontal-wrapper ps-0">
                               <ul class="horizontal-menu">
                                 <li class="level-menu outside"><a class="nav-link" href="#!" ><i data-feather="inbox"></i></a>
-                                <input type="hidden" name="resultData" id="resultData" />
+                                
                                 </li>
                               </ul>
                               </li>
                               </ul>
-                            </div>
+                            </div> -->
                             <button class="btn btn-primary was-validated" type="submit">Save changes</button>
                             <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
                           </div>

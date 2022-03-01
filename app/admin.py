@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import task_tbl
+from .models import card_tbl
 
 # Register your models here.
 
-admin.site.register(task_tbl)
+admin.site.register(card_tbl)

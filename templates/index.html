@@ -14,7 +14,8 @@
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css'%}">
+
     <!-- ico-font-->
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/icofont.css'%}">
     <!-- Themify icon-->
@@ -29,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/scrollbar.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/animate.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/jkanban.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/dropzone.css'%}">
     <!-- Plugins css Ends-->
   <!-- Bootstrap css-->
    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/bootstrap.css'%}">
@@ -48,9 +50,7 @@
       .page-wrapper.compact-wrapper .page-body-wrapper .page-body {
         min-height: calc(110vh - 80px);
       }
-      /* .bg-danger{
-        background: #dc353578 !important;
-      } */
+
   </style>
   </head>
   <body>
@@ -133,7 +133,7 @@
         <div>
           <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light"
                 src="{% static 'assets/images/logo/login_logo.png'%}" alt=""><img class="img-fluid for-dark"
-                src="{% static 'assets/images/logo/logo_dark.png'%}" alt=""></a>
+                src="{% static 'assets/images/logo/logo_dark1.png'%}" alt=""></a>
                 
             <div class="back-btn"><i class="fa fa-angle-left"></i></div>
             <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
@@ -149,12 +149,7 @@
                   <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
                       aria-hidden="true"></i></div>
                 </li>
-                <li class="sidebar-main-title">
-                  <div>
-                    <h6 class="lan-1">General</h6>
-                    <p class="lan-2">Dashboard,widgets & layout.</p>
-                  </div>
-                </li>
+
                 <li class="sidebar-list">
                   <label class="badge badge-success">2</label><a class="sidebar-link sidebar-title" href="#"><i
                       data-feather="home"></i><span class="lan-3">Dashboard</span></a>
@@ -165,18 +160,12 @@
                 </li>
 
 
-                <li class="sidebar-main-title">
-                  <div>
-                    <h6 class="lan-8">Transaction</h6>
-                    <p class="lan-9">Ready to use Apps</p>
-                  </div>
-                </li>
+
 
 
                 <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="bookmark.html"><i
                       data-feather="user"> </i><span>User</span></a></li>
-                <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav" href="contacts.html"><i
-                      data-feather="list"> </i><span>Contacts</span></a></li>
+                <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="package"></i><span>User Roles</span></a></li>
               </ul>
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
@@ -231,7 +220,10 @@
     <script src="{% static 'assets/js/typeahead/typeahead.custom.js'%}"></script>
     <script src="{% static 'assets/js/typeahead-search/handlebars.js'%}"></script>
     <script src="{% static 'assets/js/typeahead-search/typeahead-custom.js'%}"></script>
-    <script src="../assets/js/tooltip-init.js"></script>
+
+    <script src="{% static 'assets/js/dropzone/dropzone.js'%}"></script>
+    <script src="{% static 'assets/js/dropzone/dropzone-script.js'%}"></script>
+    <!-- <script src="{% static 'assets/js/tooltip-init.js'%}"></script> -->
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{% static 'assets/js/sweet-alert/sweetalert2.min.js'%}"></script>
@@ -239,6 +231,8 @@
     <script src="{% static 'assets/js/script.js'%}"></script>
     <script src="{% static 'assets/js/theme-customizer/customizer.js'%}"></script>
     <script src="{% static 'assets/js/custom/customize.js'%}"></script>
+
+    
     <script type="text/javascript">
 
       $('#createRequest').on('submit', function (e) {
