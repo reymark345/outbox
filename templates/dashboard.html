@@ -1,102 +1,301 @@
-{% extends 'index.html' %}
-{% block content %} 
-{% load static %}
-      <!-- Page Sidebar Ends-->
-      <div class="page-body">
-        <div class="container-fluid">
-          <div class="page-title">
-            <div class="row">
-              <div class="col-6">
-                <h3>
-                  Requests Information</h3>
-              </div>
-              <div class="col-6">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                  <li class="breadcrumb-item"> Apps</li>
-                  <li class="breadcrumb-item active"> Tasks Board</li>
-                </ol>
-              </div>
-            </div>
-          </div>
+{% extends 'index.html' %} {% block content %} {% load static %}
+<!-- Page Sidebar Ends-->
+<div class="page-body">
+  <div class="container-fluid">
+    <div class="page-title">
+      <div class="row">
+        <div class="col-6">
+          <h3>Requests Information</h3>
         </div>
-        <!-- Container-fluid starts-->
-        <div class="container-fluid jkanban-container">
-          <div class="row">
+        <div class="col-6">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="index.html"><i data-feather="home"></i></a>
+            </li>
+            <li class="breadcrumb-item">Apps</li>
+            <li class="breadcrumb-item active">Tasks Board</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Container-fluid starts-->
+  <div class="container-fluid jkanban-container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#modalRequests"
+              title="btn btn-primary"
+              style="float: right"
+            >
+              Create request
+            </button>
+            <!-- <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalRequests">Vertically centered</button> -->
+            <div
+              class="modal fade"
+              id="modalRequests"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="modalRequests"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Create request</h5>
+                    <button
+                      class="btn-close"
+                      type="button"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <form id="createRequest">
+                    <div class="modal-body">
+                      <!-- <form class="was-validated"> -->
 
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <button class="btn btn-primary" type="button" data-bs-toggle="modal"
-                    data-bs-target="#modalRequests" title="btn btn-primary" style="float: right;">Create
-                    request</button>
-                  <!-- <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalRequests">Vertically centered</button> -->
-                  <div class="modal fade" id="modalRequests" tabindex="-1" role="dialog"
-                    aria-labelledby="modalRequests" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Create request</h5>
-                          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <div class="mb-3">
+                        <label class="form-label" for="validationTextarea"
+                          >Title</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="title"
+                          name="title"
+                          placeholder="title here"
+                          required=""
+                        />
+                        <div class="invalid-feedback">
+                          Please enter a message in the textarea.
                         </div>
-                        <form id="createRequest">
-                          <div class="modal-body">
-                            <!-- <form class="was-validated"> -->
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label" for="validationTextarea"
+                          >Description</label
+                        >
+                        <textarea
+                          class="form-control"
+                          id="description"
+                          name="description"
+                          placeholder="problem encountered"
+                          required=""
+                        ></textarea>
+                        <div class="invalid-feedback">
+                          Please enter a message in the textarea.
+                        </div>
+                      </div>
 
-                            <div class="mb-3">
-                              <label class="form-label" for="validationTextarea">Title</label>
-                              <input type="text" class="form-control" id="title" name="title" placeholder="title here"
-                                required="">
-                              <div class="invalid-feedback">Please enter a message in the textarea.</div>
-                            </div>
-                            <div class="mb-3">
-                              <label class="form-label" for="validationTextarea">Description</label>
-                              <textarea class="form-control" id="description" name="description"
-                                placeholder="problem encountered" required=""></textarea>
-                              <div class="invalid-feedback">Please enter a message in the textarea.</div>
-                            </div>
-
-                            <div class="mb-3">
-                              <label class="form-label" for="validationTextarea">Type</label>
-                              <select class="form-select" required="" aria-label="select example" id="cat1" name="cat1" onchange="updateList('cat2', this);">
-                                <option ></option>
-                              </select>
-                              <div class="invalid-feedback">Example invalid select feedback</div>
-                            </div>
-                            <div class="mb-3">
-                              <label class="form-label" for="validationTextarea" id="lbl_cat1">Category 1</label>
-                              <select class="form-select" required="" aria-label="select example" id="cat2" name="cat2" onchange="updateList('resultData', this);">
-                                <option ></option>
-                              </select>
-                              <div class="invalid-feedback">Example invalid select feedback</div>
-                            </div>
-                            <div>
-                              <label class="form-label" for="validationTextarea">Image (optional)</label>
-                             <input type="file" multiple data-bind="fileInput: multiFileData, customFileInput: {                                                                 
-                              }" accept="image/*" name="photos[]"  class="form-control" id="dpz-remove-all-thumb">
-                              <div class="invalid-feedback">Example invalid form file feedback</div>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <input type="hidden" name="resultData" id="resultData" />
-                            <button class="btn btn-primary was-validated" type="submit">Save changes</button>
-                            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                          </div>
-                        </form>
+                      <div class="mb-3">
+                        <label class="form-label" for="validationTextarea"
+                          >Type</label
+                        >
+                        <select
+                          class="form-select"
+                          required=""
+                          aria-label="select example"
+                          id="cat1"
+                          name="cat1"
+                          onchange="updateList('cat2', this);"
+                        >
+                          <option></option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Example invalid select feedback
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          class="form-label"
+                          for="validationTextarea"
+                          id="lbl_cat1"
+                          >Category 1</label
+                        >
+                        <select
+                          class="form-select"
+                          required=""
+                          aria-label="select example"
+                          id="cat2"
+                          name="cat2"
+                          onchange="updateList('resultData', this);"
+                        >
+                          <option></option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Example invalid select feedback
+                        </div>
+                      </div>
+                      <div>
+                        <label class="form-label" for="validationTextarea"
+                          >Image (optional)</label
+                        >
+                        <input
+                          type="file"
+                          multiple
+                          data-bind="fileInput: multiFileData, customFileInput: {                                                                 
+                              }"
+                          accept="image/*"
+                          name="photos[]"
+                          class="form-control"
+                          id="dpz-remove-all-thumb"
+                        />
+                        <div class="invalid-feedback">
+                          Example invalid form file feedback
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <h5>Tasks Board</h5>
-                  <p class="mb-0">Accounting Ticketing system</p>
-                </div>
-                <div class="card-body">
-                  <div id="demo2" style="display: flex;"></div>
-                  
+                    <div class="modal-footer">
+                      <input type="hidden" name="resultData" id="resultData" />
+                      <button
+                        class="btn btn-primary was-validated"
+                        type="submit"
+                      >
+                        Save changes
+                      </button>
+                      <button
+                        class="btn btn-secondary"
+                        type="button"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
+            <h5>Tasks Board</h5>
+            <p class="mb-0">Accounting Ticketing system</p>
+          </div>
+          <div class="card-body">
+            <div id="demo2" style="display: flex"></div>
           </div>
         </div>
-        <!-- Container-fluid Ends-->
       </div>
+    </div>
+  </div>
+  <!-- Container-fluid Ends-->
+</div>
+<div id="mySidebar" class="sidebar">
+  <center><h5>Title Here</h5></center>
+  <div class="card">
+    <div class="card-header">
+      <h5>Title Here</h5>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <span
+        >Not interested in custom validation feedback messages or writing
+        JavaScript to change form behaviors? All good, you can use the browser
+        defaults. Try submitting the form below. Depending on your browser and
+        OS, you’ll see a slightly different style of feedback.</span
+      ><span
+        >While these feedback styles cannot be styled with CSS, you can still
+        customize the feedback text through JavaScript.</span
+      >
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label" for="validationDefault01"
+              >First name</label
+            >
+            <input
+              class="form-control"
+              id="validationDefault01"
+              type="text"
+              placeholder="First name"
+              required=""
+            />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="validationDefault02"
+              >Last name</label
+            >
+            <input
+              class="form-control"
+              id="validationDefault02"
+              type="text"
+              placeholder="Last name"
+              required=""
+            />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label" for="validationDefaultUsername"
+              >Username</label
+            >
+            <div class="input-group">
+              <span class="input-group-text" id="inputGroupPrepend2">@</span>
+              <input
+                class="form-control"
+                id="validationDefaultUsername"
+                type="text"
+                placeholder="Username"
+                aria-describedby="inputGroupPrepend2"
+                required=""
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label" for="validationDefault03">City</label>
+            <input
+              class="form-control"
+              id="validationDefault03"
+              type="text"
+              placeholder="City"
+              required=""
+            />
+          </div>
+          <div class="col-md-3">
+            <label class="form-label" for="validationDefault04">State</label>
+            <select class="form-select" id="validationDefault04" required="">
+              <option selected="" disabled="" value="">Choose...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label class="form-label" for="validationDefault05">Zip</label>
+            <input
+              class="form-control"
+              id="validationDefault05"
+              type="text"
+              placeholder="Zip"
+              required=""
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <div class="checkbox p-0">
+              <input
+                class="form-check-input"
+                id="invalidCheck2"
+                type="checkbox"
+                required=""
+              />
+              <label class="form-check-label" for="invalidCheck2"
+                >Agree to terms and conditions</label
+              >
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+  {% comment %}
+  <center>
+    <div class="Header"><h5>LAYOUT SETTINGS</h5></div>
+  </center>
+  <div class="Header"><h5>Description</h5></div>
+  {% endcomment %} {% comment %}
+  <center><h5>Title Here</h5></center>
+  {% endcomment %}
+</div>
 {% endblock %}

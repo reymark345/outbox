@@ -59,6 +59,7 @@ def updateStatus(request):
 def viewCard(request):
     if request.method=="POST":
         card = card_tbl.objects.all()
+    
         card = {'data':"test"}
 
         print("halaka")
