@@ -14,6 +14,7 @@
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css'%}">
 
     <!-- ico-font-->
@@ -31,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/animate.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/jkanban.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/dropzone.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/photoswipe.css'%}">
     <!-- Plugins css Ends-->
   <!-- Bootstrap css-->
    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/bootstrap.css'%}">
@@ -40,6 +42,10 @@
   <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/custom/custom.css'%}">
+    
+    <script src="{% static 'assets/js/photoswipe/photoswipe.min.js'%}"></script>
+    <script src="{% static 'assets/js/photoswipe/photoswipe-ui-default.min.js'%}"></script>
+    <script src="{% static 'assets/js/photoswipe/photoswipe.js'%}"></script>
     <style>
       body{
         zoom:90%;
@@ -193,6 +199,7 @@
       </footer>
     </div>
   </div>
+    
     <!-- latest jquery-->
     <script src="{% static 'assets/js/jquery-3.5.1.min.js'%}"></script>
     <!-- Bootstrap js-->
@@ -212,10 +219,14 @@
   
     <script src="{% static 'assets/js/config.js'%}"></script>
     <!-- Plugins JS start-->
+
+    
     <script src="{% static 'assets/js/sidebar-menu.js'%}"></script>
     <script src="{% static 'assets/js/jkanban/jkanban.js'%}"></script>
     <script src="{% static 'assets/js/jkanban/custom.js'%}"></script>
     <script src="{% static 'assets/js/typeahead/handlebars.js'%}"></script>
+
+
   
     <script src="{% static 'assets/js/typeahead/typeahead.bundle.js'%}"></script>
     <script src="{% static 'assets/js/typeahead/typeahead.custom.js'%}"></script>
@@ -278,7 +289,7 @@
             'title': `
                   <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-info f-right">medium</span>
                     <h6>{{tasking.title}}</h6>
-                    <div class="media"><img class="img-20 me-1 rounded-circle" src="/static/assets/images/user/3.jpg" alt="" data-original-title="" title="">
+                    <div class="media"><img class="img-20 me-1 rounded-circle" src="{% static 'assets/images/user/3.jpg'%}" alt="" data-original-title="" title="">
                       <div class="media-body">
                         <p>{{tasking.description|truncatechars:200}}</p>
                         <p class="f-12">Requested by: <b>Reymark N. Valdehueza</b></p>
@@ -295,7 +306,7 @@
                           <li class="d-inline-block me-3">
                             
                           </li>
-                          <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/1.jpg" alt="" data-original-title="" title=""></li>
+                          <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/1.jpg'%}" alt="" data-original-title="" title=""></li>
                         </ul>
                       </div>
                     </div></a>
@@ -315,8 +326,8 @@
                   'title': `
                         <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-danger f-right">Argent</span>
                           <h6>{{tasking.title}}</h6>
-                          <div class="media"><img class="img-20 me-1 rounded-circle" src="/static/assets/images/user/3.jpg" alt="" data-original-title="" title="">
-                            <div class="media-body">
+                          <div class="media"><img class="img-20 me-1 rounded-circle" src="{% static 'assets/images/user/3.jpg'%}" alt="" data-original-title="" title="">
+                            <div class="media-body">  
                               <p>{{tasking.description|truncatechars:200}}</p>
                               <p class="f-12">Requested by: <b>Reymark N. Valdehueza</b></p>
                             </div>
@@ -332,7 +343,7 @@
                                 <li class="d-inline-block me-3">
                                   <p class="f-12">+5</p>
                                 </li>
-                                <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/1.jpg" alt="" data-original-title="" title=""></li> 
+                                <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/1.jpg'%}" alt="" data-original-title="" title=""></li> 
                               </ul>
                             </div>
                           </div></a>
@@ -352,7 +363,7 @@
                   'title': `
                         <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-success f-right">Low</span>
                           <h6>{{tasking.title}}</h6>
-                          <div class="media"><img class="img-20 me-1 rounded-circle" src="/static/assets/images/user/3.jpg" alt="" data-original-title="" title="">
+                          <div class="media"><img class="img-20 me-1 rounded-circle" src="{% static 'assets/images/user/3.jpg'%}" alt="" data-original-title="" title="">
                             <div class="media-body">
                               <p>{{tasking.description|truncatechars:200}}</p>
                               <p class="f-12">Requested by: <b>Reymark N. Valdehueza</b></p>
@@ -369,7 +380,7 @@
                                 <li class="d-inline-block me-3">
                                   <p class="f-12">+5</p>
                                 </li>
-                                <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/1.jpg" alt="" data-original-title="" title=""></li> 
+                                <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/1.jpg'%}" alt="" data-original-title="" title=""></li> 
                               </ul>
                             </div>
                           </div></a>
@@ -389,7 +400,7 @@
                   'title': `
                       <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-danger f-right">Argent</span>
                         <h6>{{tasking.title}}</h6>
-                        <div class="media"><img class="img-20 me-1 rounded-circle" src="/static/assets/images/user/3.jpg" alt="" data-original-title="" title="">
+                        <div class="media"><img class="img-20 me-1 rounded-circle" src="{% static 'assets/images/user/3.jpg'%}" alt="" data-original-title="" title="">
                           <div class="media-body">
                             <p>{{tasking.description|truncatechars:200}}</p>
                             <p class="f-12">Requested by: <b>Reymark N. Valdehueza</b></p>
@@ -406,9 +417,9 @@
                               <li class="d-inline-block me-3">
                                 <p class="f-12">+5</p>
                               </li>
-                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/3.jpg" alt="" data-original-title="" title=""></li>
-                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/1.jpg" alt="" data-original-title="" title=""></li>
-                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/5.jpg" alt="" data-original-title="" title=""></li>
+                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/3.jpg'%}" alt="" data-original-title="" title=""></li>
+                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/1.jpg'%}" alt="" data-original-title="" title=""></li>
+                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/5.jpg'%}" alt="" data-original-title="" title=""></li>
                             </ul>
                           </div>
                         </div></a>
@@ -425,12 +436,9 @@
             url: "{% url 'viewCard' %}",
             type: 'POST'
             }).done(function(response){
-
               $('#mySidebar').css('width',"30%");
-
-              
-            console.log("successsssaas");
-            console.log(response.data);
+              console.log("successsssaas");
+              console.log(response.data);
             })
         },
       dropEl: function (el, target, source, sibling) {

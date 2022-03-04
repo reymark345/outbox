@@ -58,10 +58,12 @@ def updateStatus(request):
 @csrf_exempt
 def viewCard(request):
     if request.method=="POST":
+        cardId = request.POST.get('id')
         card = card_tbl.objects.all()
     
         card = {'data':"test"}
 
         print("halaka")
+        print(cardId)
         return JsonResponse(card)
 
