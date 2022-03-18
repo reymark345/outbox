@@ -444,8 +444,42 @@
             type: 'POST'
             }).done(function(response){
               $('#mySidebar').css('width',"30%");
-              console.log("successsssaas");
+
               console.log(response.data);
+              var title = response.data[0].title
+              var requested_by = response.data[0].requested_by
+              var description = response.data[0].description
+              var cat1name = response.data[0].cat1_name
+              var cat2name = response.data[0].cat2_name
+              var levels = response.data[0].levels
+           
+
+              $("#title_sidebar").text(title);
+              $("#description_sidebar").text(description);
+              if (levels=="low"){
+                $('#difficulty').append('<span class="badge badge-success f-left" id="levels_sidebar" style="color:white;"></span>'); 
+              }else if(levels=="medium"){
+                $('#difficulty').append('<span class="badge badge-warning f-left" id="levels_sidebar" style="color:white;"></span>');
+              }
+              else{
+                $('#difficulty').append('<span class="badge badge-danger f-left" id="levels_sidebar" style="color:white;"></span>');
+              }
+              $("#levels_sidebar").text(levels);
+              
+              $('#aniimated-thumbnials').empty();
+              for (var i = 0; i < response.data.length; i++) {
+                
+                console.log(response.data[i].photos); 
+                let photos = response.data[i].photos;
+                $('#aniimated-thumbnials').append('<figure class="col-md-3 col-6 img-hover hover-2" itemprop="associatedMedia" itemscope=""><a href="../media/'+photos+'"  itemprop="contentUrl" data-size="1600x950">' +
+                '<div><img src="../media/'+photos+'" itemprop="thumbnail" alt="Image description"></div></a>' +
+                '<figcaption itemprop="caption description">Image</figcaption>' +
+                '</figure>');
+            }
+   
+
+      
+      
             })
         },
       dropEl: function (el, target, source, sibling) {
