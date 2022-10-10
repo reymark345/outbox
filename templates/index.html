@@ -14,6 +14,7 @@
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.css'%}">
 
     <!-- ico-font-->
@@ -31,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/animate.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/jkanban.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/dropzone.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/photoswipe.css'%}">
     <!-- Plugins css Ends-->
   <!-- Bootstrap css-->
    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/bootstrap.css'%}">
@@ -40,6 +42,14 @@
   <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/vendors/custom/custom.css'%}">
+
+		
+
+
+
+    {% comment %} <script src="{% static 'assets/js/photoswipe/photoswipe.js'%}"></script> {% endcomment %}
+
+  
     <style>
       body{
         zoom:90%;
@@ -139,13 +149,14 @@
             <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
           </div>
           <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid"
-                src="../assets/images/logo/logo-icon.png" alt=""></a></div>
+            
+                src="{% static 'assets/images/logo/logo-icon.png'%}" alt=""></a></div>
           <nav class="sidebar-main">
             <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
             <div id="sidebar-menu">
               <ul class="sidebar-links" id="simple-bar">
                 <li class="back-btn"><a href="index.html"><img class="img-fluid"
-                      src="../assets/images/logo/logo-icon.png" alt=""></a>
+                      src="{% static 'assets/images/logo/logo-icon.png'%}" alt=""></a>
                   <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
                       aria-hidden="true"></i></div>
                 </li>
@@ -192,6 +203,7 @@
       </footer>
     </div>
   </div>
+    
     <!-- latest jquery-->
     <script src="{% static 'assets/js/jquery-3.5.1.min.js'%}"></script>
     <!-- Bootstrap js-->
@@ -211,10 +223,14 @@
   
     <script src="{% static 'assets/js/config.js'%}"></script>
     <!-- Plugins JS start-->
+
+    
     <script src="{% static 'assets/js/sidebar-menu.js'%}"></script>
     <script src="{% static 'assets/js/jkanban/jkanban.js'%}"></script>
     <script src="{% static 'assets/js/jkanban/custom.js'%}"></script>
     <script src="{% static 'assets/js/typeahead/handlebars.js'%}"></script>
+
+
   
     <script src="{% static 'assets/js/typeahead/typeahead.bundle.js'%}"></script>
     <script src="{% static 'assets/js/typeahead/typeahead.custom.js'%}"></script>
@@ -223,6 +239,7 @@
 
     <script src="{% static 'assets/js/dropzone/dropzone.js'%}"></script>
     <script src="{% static 'assets/js/dropzone/dropzone-script.js'%}"></script>
+
     <!-- <script src="{% static 'assets/js/tooltip-init.js'%}"></script> -->
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
@@ -231,9 +248,12 @@
     <script src="{% static 'assets/js/script.js'%}"></script>
     <script src="{% static 'assets/js/theme-customizer/customizer.js'%}"></script>
     <script src="{% static 'assets/js/custom/customize.js'%}"></script>
-
+    <script src="{% static 'assets/js/photoswipe/photoswipe.min.js'%}"></script>
+    <script src="{% static 'assets/js/photoswipe/photoswipe-ui-default.min.js'%}"></script>
+    <script src="{% static 'assets/js/photoswipe/photoswipe.js'%}"></script>
     
     <script type="text/javascript">
+      $('<div class="customizer-links"><div class="nav flex-column nac-pills" id="c-pills-tab" role="tablist" aria-orientation="vertical"> <a class="nav-link" id="c-pills-layouts-tab" data-bs-toggle="pill" href="#c-pills-layouts" role="tab" aria-controls="c-pills-layouts" aria-selected="true" data-original-title="" title=""><div class="settings"><i class="icon-paint-bucket"></i></div> <span>Check layouts</span> </a> <a class="nav-link" id="c-pills-home-tab" data-bs-toggle="pill" href="#c-pills-home" role="tab" aria-controls="c-pills-home" aria-selected="true" data-original-title="" title=""><div class="settings"><i class="icon-settings"></i></div> <span>Quick option</span> </a></div></div><div class="customizer-contain"><div class="tab-content" id="c-pills-tabContent"><div class="customizer-header"> <i class="icofont-close icon-close"></i><h5>Layout Settings</h5><p class="mb-0">Choose layout</p></div><div class="customizer-body custom-scrollbar"><div class="tab-pane fade show active" id="c-pills-home" role="tabpanel" aria-labelledby="c-pills-home-tab"><h6>Layout Type</h6><ul class="main-layout layout-grid"><li data-attr="ltr" class="active"><div class="header bg-light"><ul><li></li><li></li><li></li></ul></div><div class="body"><ul><li class="bg-light sidebar"></li><li class="bg-light body"><span class="badge badge-primary">LTR</span></li></ul></div></li><li data-attr="rtl"><div class="header bg-light"><ul><li></li><li></li><li></li></ul></div><div class="body"><ul><li class="bg-light body"><span class="badge badge-primary">RTL</span></li><li class="bg-light sidebar"></li></ul></div></li><li data-attr="ltr" class="box-layout px-3"><div class="header bg-light"><ul><li></li><li></li><li></li></ul></div><div class="body"><ul><li class="bg-light sidebar"></li><li class="bg-light body"><span class="badge badge-primary">Box</span></li></ul></div></li></ul><h6 class="">Sidebar Type</h6><ul class="sidebar-type layout-grid"><li data-attr="normal-sidebar"><div class="header bg-light"><ul><li></li><li></li><li></li></ul></div><div class="body"><ul><li class="bg-dark sidebar"></li><li class="bg-light body"></li></ul></div></li><li data-attr="compact-sidebar"><div class="header bg-light"><ul><li></li><li></li><li></li></ul></div><div class="body"><ul><li class="bg-dark sidebar compact"></li><li class="bg-light body"></li></ul></div></li></ul><h6 class="">Sidebar settings</h6><ul class="sidebar-setting layout-grid"><li class="active" data-attr="default-sidebar"><div class="header bg-light"><ul><li></li><li></li><li></li></ul></div><div class="body bg-light"><span class="badge badge-primary">Dubai</span></div></li><li data-attr="border-sidebar"><div class="header bg-light"><ul><li></li><li></li><li></li></ul></div><div class="body bg-light"><span class="badge badge-primary">Border</span></div></li><li data-attr="iconcolor-sidebar"><div class="header bg-light"><ul><li></li><li></li><li></li></ul></div><div class="body bg-light"><span class="badge badge-primary">icon Color</span></div></li></ul><h6 class="">Unlimited Color</h6><ul class="layout-grid unlimited-color-layout"> <input id="ColorPicker1" type="color" value="#7366ff" name="Background" /> <input id="ColorPicker2" type="color" value="#f73164" name="Background" /> <button type="button" class="color-apply-btn btn btn-primary color-apply-btn">Apply</button></ul><h6>Light layout</h6><ul class="layout-grid customizer-color"><li class="color-layout" data-attr="color-1" data-primary="#7366ff" data-secondary="#f73164"><div></div></li><li class="color-layout" data-attr="color-2" data-primary="#4831D4" data-secondary="#ea2087"><div></div></li><li class="color-layout" data-attr="color-3" data-primary="#d64dcf" data-secondary="#8e24aa"><div></div></li><li class="color-layout" data-attr="color-4" data-primary="#4c2fbf" data-secondary="#2e9de4"><div></div></li><li class="color-layout" data-attr="color-5" data-primary="#7c4dff" data-secondary="#7b1fa2"><div></div></li><li class="color-layout" data-attr="color-6" data-primary="#3949ab" data-secondary="#4fc3f7"><div></div></li></ul><h6 class="">Dark Layout</h6><ul class="layout-grid customizer-color dark"><li class="color-layout" data-attr="color-1" data-primary="#4466f2" data-secondary="#1ea6ec"><div></div></li><li class="color-layout" data-attr="color-2" data-primary="#4831D4" data-secondary="#ea2087"><div></div></li><li class="color-layout" data-attr="color-3" data-primary="#d64dcf" data-secondary="#8e24aa"><div></div></li><li class="color-layout" data-attr="color-4" data-primary="#4c2fbf" data-secondary="#2e9de4"><div></div></li><li class="color-layout" data-attr="color-5" data-primary="#7c4dff" data-secondary="#7b1fa2"><div></div></li><li class="color-layout" data-attr="color-6" data-primary="#3949ab" data-secondary="#4fc3f7"><div></div></li></ul><h6 class="">Mix Layout</h6><ul class="layout-grid customizer-mix"><li class="color-layout active" data-attr="light-only"><div class="header bg-light"><ul><li></li><li></li><li></li></ul></div><div class="body"><ul><li class="bg-light sidebar"></li><li class="bg-light body"></li></ul></div></li><li class="color-layout" data-attr="dark-sidebar"><div class="header bg-light"><ul><li></li><li></li><li></li></ul></div><div class="body"><ul><li class="bg-dark sidebar"></li><li class="bg-light body"></li></ul></div></li><li class="color-layout" data-attr="dark-only"><div class="header bg-dark"><ul><li></li><li></li><li></li></ul></div><div class="body"><ul><li class="bg-dark sidebar"></li><li class="bg-dark body"></li></ul></div></li></ul></div><div class="tab-pane fade" id="c-pills-layouts" role="tabpanel" aria-labelledby="c-pills-layouts-tab"><ul class="sidebar-type layout-grid layout-types"><li data-attr="compact-sidebar"><div class="layout-img"> <a href="javascript:void(0)"><img src="{% static 'assets/images/landing/layout-images/dubai.jpg'%}" class="img-fluid" alt="" /></a><h6>Format 1</h6></div></li><li data-attr="material-layout"><div class="layout-img"> <a href="javascript:void(0)"><img src="{% static 'assets/images/landing/layout-images/los.jpg'%}" class="img-fluid" alt="" /></a><h6>Format 2</h6></div></li></ul></div></div></div></div>').appendTo($('body'));
 
       $('#createRequest').on('submit', function (e) {
         $.ajax({
@@ -260,10 +280,10 @@
       //Tasks board
       var kanban2 = new jKanban({
         element: '#demo2',
-        gutter:'15px',
-        buttonClick  : function (el, boardId) {
-          alert(el.innerHTML);
-        },
+        gutter:'15px',        
+        // buttonClick  : function (el, boardId) {
+        //   alert(el.innerHTML);
+        // },
         boards: [{
           'id': '0',
           'title': 'To do',
@@ -276,7 +296,7 @@
             'title': `
                   <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-info f-right">medium</span>
                     <h6>{{tasking.title}}</h6>
-                    <div class="media"><img class="img-20 me-1 rounded-circle" src="/static/assets/images/user/3.jpg" alt="" data-original-title="" title="">
+                    <div class="media"><img class="img-20 me-1 rounded-circle" src="{% static 'assets/images/user/3.jpg'%}" alt="" data-original-title="" title="">
                       <div class="media-body">
                         <p>{{tasking.description|truncatechars:200}}</p>
                         <p class="f-12">Requested by: <b>Reymark N. Valdehueza</b></p>
@@ -293,7 +313,7 @@
                           <li class="d-inline-block me-3">
                             
                           </li>
-                          <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/1.jpg" alt="" data-original-title="" title=""></li>
+                          <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/1.jpg'%}" alt="" data-original-title="" title=""></li>
                         </ul>
                       </div>
                     </div></a>
@@ -313,8 +333,8 @@
                   'title': `
                         <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-danger f-right">Argent</span>
                           <h6>{{tasking.title}}</h6>
-                          <div class="media"><img class="img-20 me-1 rounded-circle" src="/static/assets/images/user/3.jpg" alt="" data-original-title="" title="">
-                            <div class="media-body">
+                          <div class="media"><img class="img-20 me-1 rounded-circle" src="{% static 'assets/images/user/3.jpg'%}" alt="" data-original-title="" title="">
+                            <div class="media-body">  
                               <p>{{tasking.description|truncatechars:200}}</p>
                               <p class="f-12">Requested by: <b>Reymark N. Valdehueza</b></p>
                             </div>
@@ -330,7 +350,7 @@
                                 <li class="d-inline-block me-3">
                                   <p class="f-12">+5</p>
                                 </li>
-                                <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/1.jpg" alt="" data-original-title="" title=""></li> 
+                                <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/1.jpg'%}" alt="" data-original-title="" title=""></li> 
                               </ul>
                             </div>
                           </div></a>
@@ -350,7 +370,7 @@
                   'title': `
                         <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-success f-right">Low</span>
                           <h6>{{tasking.title}}</h6>
-                          <div class="media"><img class="img-20 me-1 rounded-circle" src="/static/assets/images/user/3.jpg" alt="" data-original-title="" title="">
+                          <div class="media"><img class="img-20 me-1 rounded-circle" src="{% static 'assets/images/user/3.jpg'%}" alt="" data-original-title="" title="">
                             <div class="media-body">
                               <p>{{tasking.description|truncatechars:200}}</p>
                               <p class="f-12">Requested by: <b>Reymark N. Valdehueza</b></p>
@@ -367,7 +387,7 @@
                                 <li class="d-inline-block me-3">
                                   <p class="f-12">+5</p>
                                 </li>
-                                <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/1.jpg" alt="" data-original-title="" title=""></li> 
+                                <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/1.jpg'%}" alt="" data-original-title="" title=""></li> 
                               </ul>
                             </div>
                           </div></a>
@@ -387,7 +407,7 @@
                   'title': `
                       <a class="kanban-box" href="#" data-id="{{tasking.id}}"><span class="date" >{{tasking.date_requested}}</span><span class="badge badge-danger f-right">Argent</span>
                         <h6>{{tasking.title}}</h6>
-                        <div class="media"><img class="img-20 me-1 rounded-circle" src="/static/assets/images/user/3.jpg" alt="" data-original-title="" title="">
+                        <div class="media"><img class="img-20 me-1 rounded-circle" src="{% static 'assets/images/user/3.jpg'%}" alt="" data-original-title="" title="">
                           <div class="media-body">
                             <p>{{tasking.description|truncatechars:200}}</p>
                             <p class="f-12">Requested by: <b>Reymark N. Valdehueza</b></p>
@@ -404,9 +424,9 @@
                               <li class="d-inline-block me-3">
                                 <p class="f-12">+5</p>
                               </li>
-                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/3.jpg" alt="" data-original-title="" title=""></li>
-                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/1.jpg" alt="" data-original-title="" title=""></li>
-                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="/static/assets/images/user/5.jpg" alt="" data-original-title="" title=""></li>
+                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/3.jpg'%}" alt="" data-original-title="" title=""></li>
+                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/1.jpg'%}" alt="" data-original-title="" title=""></li>
+                              <li class="d-inline-block"><img class="img-20 rounded-circle" src="{% static 'assets/images/user/5.jpg'%}" alt="" data-original-title="" title=""></li>
                             </ul>
                           </div>
                         </div></a>
@@ -414,6 +434,54 @@
                 },{% endif %}{% endfor %}
                 ]
       }],
+      click: function (el) {
+          var id = $(el).find('.kanban-box').data('id');
+          $.ajax({
+            data: {
+            id
+            },
+            url: "{% url 'viewCard' %}",
+            type: 'POST'
+            }).done(function(response){
+              $('#mySidebar').css('width',"30%");
+
+              console.log(response.data);
+              var title = response.data[0].title
+              var requested_by = response.data[0].requested_by
+              var description = response.data[0].description
+              var cat1name = response.data[0].cat1_name
+              var cat2name = response.data[0].cat2_name
+              var levels = response.data[0].levels
+           
+
+              $("#title_sidebar").text(title);
+              $("#description_sidebar").text(description);
+              if (levels=="low"){
+                $('#difficulty').append('<span class="badge badge-success f-left" id="levels_sidebar" style="color:white;"></span>'); 
+              }else if(levels=="medium"){
+                $('#difficulty').append('<span class="badge badge-warning f-left" id="levels_sidebar" style="color:white;"></span>');
+              }
+              else{
+                $('#difficulty').append('<span class="badge badge-danger f-left" id="levels_sidebar" style="color:white;"></span>');
+              }
+              $("#levels_sidebar").text(levels);
+              
+              $('#aniimated-thumbnials').empty();
+              for (var i = 0; i < response.data.length; i++) {
+                
+                console.log(response.data[i].photos); 
+                let photos = response.data[i].photos;
+                $('#aniimated-thumbnials').append('<figure class="col-md-3 col-6 img-hover hover-2" itemprop="associatedMedia" itemscope=""><a href="../media/'+photos+'"  itemprop="contentUrl" data-size="1600x950">' +
+                '<div><img src="../media/'+photos+'" itemprop="thumbnail" alt="Image description"></div></a>' +
+                '<figcaption itemprop="caption description">Image</figcaption>' +
+                '</figure>');
+            }
+   
+
+      
+      
+            })
+        },
       dropEl: function (el, target, source, sibling) {
   
         //control data id if not existed in list
@@ -433,7 +501,15 @@
           console.log("success");
         })
     }});
+    function closeNav() {
+      $('#mySidebar').css('width',0);
+    }
+
+
+
+  
     </script>
+    {% comment %} <script src="{% static 'assets/js/photoswipe/photoswipe.js'%}"></script> {% endcomment %}
     <!-- login js-->
     <!-- Plugin used-->
   </body>

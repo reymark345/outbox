@@ -14,6 +14,7 @@ urlpatterns = [
     path('createtask/',views.createtask, name='createtask'),
     path('taskboard/',views.taskboard, name='taskboard'),
     path('updateStatus/',views.updateStatus, name='updateStatus'),
+    path('viewCard/',views.viewCard, name='viewCard'),
 
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
